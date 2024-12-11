@@ -1,8 +1,8 @@
 ingredient_research_task:
   description: >
-    Conduct a comprehensive investigation of the ingredient list for {product_name}.
-    Gather detailed information about each ingredient's origin, processing, 
-    and potential health implications.
+    Conduct a comprehensive investigation of the ingredient list for {product_name}
+    using {product_ingredients}. Gather detailed information about each ingredient's 
+    origin, processing, and potential health implications.
   expected_output: >
     A detailed ingredient database with comprehensive information, 
     including source, processing method, and initial safety assessment.
@@ -10,8 +10,8 @@ ingredient_research_task:
 
 allergen_identification_task:
   description: >
-    Analyze the ingredient list for {product_name} and identify potential 
-    allergens. Create a detailed risk profile for each ingredient.
+    Analyze the ingredient list {product_ingredients} for {product_name} and identify 
+    potential allergens. Create a detailed risk profile for each ingredient.
   expected_output: >
     A comprehensive allergen risk assessment with detailed categorization 
     of ingredients based on allergenic potential.
@@ -19,8 +19,8 @@ allergen_identification_task:
 
 additive_risk_assessment_task:
   description: >
-    Investigate chemical additives in {product_name}. Assess potential 
-    short-term and long-term health risks associated with each additive.
+    Investigate chemical additives in {product_ingredients} for {product_name}. 
+    Assess potential short-term and long-term health risks associated with each additive.
   expected_output: >
     A thorough risk assessment report detailing the safety profile of 
     each additive, including potential health concerns.

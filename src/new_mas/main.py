@@ -7,8 +7,8 @@ def run():
     Run the food safety intelligence crew.
     """
     inputs = {
-        'product_ingredients': 'List of product ingredients here',
-        'product_name': 'Sample Food Product'
+        'product_ingredients': 'Whole wheat flour,Sugar,Salt',
+        'product_name': 'Honey Bunches of Oats'
     }
     FoodSafetyIntelligenceCrew().crew().kickoff(inputs=inputs)
 
