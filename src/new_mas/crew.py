@@ -1,51 +1,72 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-# Uncomment the following line to use an example of a custom tool
-# from new_mas.tools.custom_tool import MyCustomTool
-
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
+# Potential future custom tools
+# from new_mas.tools.ingredient_database_tool import IngredientDatabaseTool
 
 @CrewBase
-class NewMasCrew():
-	"""NewMas crew"""
+class FoodSafetyIntelligenceCrew():
+    """Food Ingredient Safety Multi-Agent System"""
 
-	@agent
-	def researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['researcher'],
-			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
-			verbose=True
-		)
+    @agent
+    def ingredient_researcher(self) -> Agent:
+        return Agent(
+            config=self.agents_config['ingredient_researcher'],
+            verbose=True
+        )
 
-	@agent
-	def reporting_analyst(self) -> Agent:
-		return Agent(
-			config=self.agents_config['reporting_analyst'],
-			verbose=True
-		)
+    @agent
+    def allergen_identifier(self) -> Agent:
+        return Agent(
+            config=self.agents_config['allergen_identifier'],
+            verbose=True
+        )
 
-	@task
-	def research_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['research_task'],
-		)
+    @agent
+    def additive_risk_assessor(self) -> Agent:
+        return Agent(
+            config=self.agents_config['additive_risk_assessor'],
+            verbose=True
+        )
 
-	@task
-	def reporting_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
-		)
+    @agent
+    def safety_reporter(self) -> Agent:
+        return Agent(
+            config=self.agents_config['safety_reporter'],
+            verbose=True
+        )
 
-	@crew
-	def crew(self) -> Crew:
-		"""Creates the NewMas crew"""
-		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
-			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
-		)
+    @task
+    def ingredient_research_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['ingredient_research_task'],
+        )
+
+    @task
+    def allergen_identification_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['allergen_identification_task'],
+        )
+
+    @task
+    def additive_risk_assessment_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['additive_risk_assessment_task'],
+        )
+
+    @task
+    def safety_reporting_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['safety_reporting_task'],
+            output_file='food_safety_report.md'
+        )
+
+    @crew
+    def crew(self) -> Crew:
+        """Creates the Food Safety Intelligence Crew"""
+        return Crew(
+            agents=self.agents,
+            tasks=self.tasks,
+            process=Process.sequential,
+            verbose=True
+        )

@@ -1,17 +1,36 @@
-research_task:
+ingredient_research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
+    Conduct a comprehensive investigation of the ingredient list for {product_name}.
+    Gather detailed information about each ingredient's origin, processing, 
+    and potential health implications.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A detailed ingredient database with comprehensive information, 
+    including source, processing method, and initial safety assessment.
+  agent: ingredient_researcher
 
-reporting_task:
+allergen_identification_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Analyze the ingredient list for {product_name} and identify potential 
+    allergens. Create a detailed risk profile for each ingredient.
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A comprehensive allergen risk assessment with detailed categorization 
+    of ingredients based on allergenic potential.
+  agent: allergen_identifier
+
+additive_risk_assessment_task:
+  description: >
+    Investigate chemical additives in {product_name}. Assess potential 
+    short-term and long-term health risks associated with each additive.
+  expected_output: >
+    A thorough risk assessment report detailing the safety profile of 
+    each additive, including potential health concerns.
+  agent: additive_risk_assessor
+
+safety_reporting_task:
+  description: >
+    Synthesize findings from previous tasks. Create a comprehensive, 
+    user-friendly report about the safety of {product_name}'s ingredients.
+  expected_output: >
+    A markdown-formatted report with clear sections on ingredient analysis, 
+    allergen risks, additive safety, and overall product recommendation.
+  agent: safety_reporter
